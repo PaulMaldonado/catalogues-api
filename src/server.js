@@ -16,7 +16,7 @@ const verifyTokenUser = require('./middlewares/validate_token');
 
 const app = express();
 
-const PORT = process.env.DB_PORT
+const PORT = process.env.DB_PORT || 8000;
 
 // Middlewares
 app.use(morgan('dev'));
@@ -31,4 +31,4 @@ app.use('/api/auth', authRoutes);
 app.use('/api/home', verifyTokenUser, dashboardRoutes);
 
 
-app.listen(PORT, () => console.log(`Server running on port: http//localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
