@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // uso de rutas
 app.use('/api/catalogues', verifyTokenUser, catalogueRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/home', verifyTokenUser, dashboardRoutes);
+app.use('/', verifyTokenUser, dashboardRoutes);
 
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
